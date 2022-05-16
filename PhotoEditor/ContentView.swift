@@ -16,18 +16,32 @@ struct ContentView: View {
     init(){
         UITabBar.appearance().isHidden = true
     }
+    
+    //Matched geometry effect
+    @Namespace var animation
+    
+    @State var currentXValue: CGFloat = 0 
+    
     var body: some View {
         TabView(selection: $currentTab){
             Text("Home")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color("BG")).ignoresSafeArea()
                 .tag(Tab.Home)
             
             Text("Search")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color("BG")).ignoresSafeArea()
                 .tag(Tab.Search)
             
             Text("Message")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color("BG")).ignoresSafeArea()
                 .tag(Tab.Message)
             
             Text("Account")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color("BG")).ignoresSafeArea()
                 .tag(Tab.Account)
             
         }
@@ -38,37 +52,74 @@ struct ContentView: View {
                 ForEach(Tab.allCases, id: \.rawValue){ tab in
                     TabButton(tab: tab)
                 }
+            }
                 .padding(.vertical)
                 .padding(.bottom, getSafearea().bottom == 0 ? 10:
                             getSafearea().bottom - 10)
-                .background(MaterialEffect(style: .systemUltraThinMaterialDark))
-            },
+                .background(
+                    MaterialEffect(style:
+                                .systemUltraThinMaterialDark)
+                                .clipShape(BottomCurve(currentXValue: currentXValue)))
+                
+             ,
             alignment: .bottom
         )
         .ignoresSafeArea(.all, edges: .bottom)
         .preferredColorScheme(.dark)
-        
-        
-        
+
     }
     
     //tabButton
     @ViewBuilder func TabButton(tab: Tab) -> some View {
         
-        Button{
-            withAnimation(.spring()){
-                currentTab = tab
-            }
+        GeometryReader{ proxy in
             
-        } label: {
-            Image(systemName: tab.rawValue)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 25, height: 25)
-                .frame(maxWidth: .infinity)
-            .foregroundColor(.white)}
-        
+            Button{
+                withAnimation(.spring()){
+                    currentTab = tab
+                    
+                    //updateValue
+                    currentXValue = proxy.frame(in: .global).midX
+                }
+                
+                
+            } label: {
+                
+                //moving button up for current page
+                
+                Image(systemName: tab.rawValue)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 25, height: 25)
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .padding(currentTab == tab ? 15: 0)
+                    .background(
+                        ZStack{
+                            if currentTab == tab{
+                                 
+                                MaterialEffect(style: .systemChromeMaterialDark)
+                                    .clipShape(Circle())
+                                    .matchedGeometryEffect(id: "TAB", in: animation)
+                            }
+                        }
+                      
+                )
+                    .contentShape(Rectangle())
+                    .offset(y: currentTab == tab ? -50 : 0)
+                
+                //setting initial curve position
+                    .onAppear{
+                        if tab == Tab.allCases.first && currentXValue == 0 {
+                            currentXValue = proxy.frame(in: .global).midX
+                        }
+                    }
+            }
+        }
+        .frame(height: 30)
     }
+    
+       
 }
 
 struct ContentView_Previews: PreviewProvider {
