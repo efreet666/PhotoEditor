@@ -14,6 +14,7 @@
 		F56F6E4B2832A16D008879F3 /* PhotoEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E4A2832A16D008879F3 /* PhotoEditorTests.swift */; };
 		F56F6E552832A16D008879F3 /* PhotoEditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E542832A16D008879F3 /* PhotoEditorUITests.swift */; };
 		F56F6E572832A16D008879F3 /* PhotoEditorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E562832A16D008879F3 /* PhotoEditorUITestsLaunchTests.swift */; };
+		F56F6E652832AA18008879F3 /* MaterialEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E642832AA18008879F3 /* MaterialEffect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		F56F6E502832A16D008879F3 /* PhotoEditorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoEditorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56F6E542832A16D008879F3 /* PhotoEditorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorUITests.swift; sourceTree = "<group>"; };
 		F56F6E562832A16D008879F3 /* PhotoEditorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F56F6E642832AA18008879F3 /* MaterialEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,10 @@
 		F56F6E382832A168008879F3 /* PhotoEditor */ = {
 			isa = PBXGroup;
 			children = (
+				F56F6E632832A191008879F3 /* View */,
 				F56F6E392832A168008879F3 /* PhotoEditorApp.swift */,
 				F56F6E3B2832A168008879F3 /* ContentView.swift */,
+				F56F6E642832AA18008879F3 /* MaterialEffect.swift */,
 				F56F6E3D2832A16D008879F3 /* Assets.xcassets */,
 				F56F6E3F2832A16D008879F3 /* Preview Content */,
 			);
@@ -125,6 +129,13 @@
 				F56F6E562832A16D008879F3 /* PhotoEditorUITestsLaunchTests.swift */,
 			);
 			path = PhotoEditorUITests;
+			sourceTree = "<group>";
+		};
+		F56F6E632832A191008879F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F56F6E3C2832A168008879F3 /* ContentView.swift in Sources */,
+				F56F6E652832AA18008879F3 /* MaterialEffect.swift in Sources */,
 				F56F6E3A2832A168008879F3 /* PhotoEditorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
