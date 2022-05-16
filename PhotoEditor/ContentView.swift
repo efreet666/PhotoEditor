@@ -24,7 +24,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $currentTab){
-            Text("Home")
+            SampleCards(color: .purple, count: 20)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color("BG")).ignoresSafeArea()
                 .tag(Tab.Home)
@@ -68,6 +68,32 @@ struct ContentView: View {
         .preferredColorScheme(.dark)
 
     }
+    
+    //simple cards
+    @ViewBuilder func SampleCards(color: Color, count: Int) -> some View{
+        
+        NavigationView{
+            ScrollView(.vertical, showsIndicators: false) {
+                
+                VStack(spacing: 15){
+                    
+                    ForEach(1...count, id: \.self){index in
+                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(color)
+                            .frame(height: 250)
+                        
+                    
+                }
+                }
+                .padding()
+                .padding(.bottom, 60)
+                .padding(.bottom,getSafearea().bottom == 0 ? 15 : getSafearea().bottom)
+            }
+        }
+        
+    }
+    
     
     //tabButton
     @ViewBuilder func TabButton(tab: Tab) -> some View {
