@@ -188,12 +188,36 @@ struct ContentView: View {
                 
                 if #available(iOS 15.0, *) {
                     Section{
-                        Text("Settings")
-                        Text("Billing")
-                        Text("Help")
+                        Label("Settings", systemImage: "gear")
+                        Label("Billing", systemImage: "creditcard")
+                        Label("Help", systemImage: "questionmark" )
                     }
                     .listRowSeparatorTint(.blue)
                     .listRowSeparator(.hidden)
+                    
+                    Section{
+                        
+                            Link(destination: URL(string: "https://vk.com/vlad_bokin")!, label: {
+                                HStack{
+                                Label("Website", systemImage: "house")
+                                    .lineLimit(1)
+                                Spacer()
+                                Image(systemName: "link")
+                                    .foregroundColor(.secondary)
+                                }
+                            })
+                        
+                        Link(destination: URL(string: "https://vk.com/vlad_bokin")!, label: {
+                            HStack{
+                            Label("VK", systemImage: "house")
+                                .lineLimit(1)
+                            Spacer()
+                            Image(systemName: "link")
+                                .foregroundColor(.secondary)
+                            }
+                        })
+                    }
+                    
                 } else {
                     // Fallback on earlier versions
                 }
