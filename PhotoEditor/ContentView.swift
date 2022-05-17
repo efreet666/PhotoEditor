@@ -105,33 +105,45 @@ struct ContentView: View {
         
         ZStack{
             
-            
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color.white)
-                .frame(height: 125)
-
+            MaterialEffect(style: .systemUltraThinMaterial)
+                .frame(height: 250)
+                .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
                 .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 10)
-                .opacity(0.5)
-                .background(Image("Blob 1"))
-            HStack{
+                .padding(.all, 20.0)
                 
-                Image("edit")
+            VStack{
+                
+                Image("image1")
                     .resizable(resizingMode: .stretch)
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
-                
+                    .frame(width: 330)
+                    .offset(x: 0, y: -30)
                    
-                Text("Редактировать фото")
-                    .font(.title)
-                    .font(.footnote)
-                    
                 
+                HStack{
+                    
+                    Image("edit")
+                        .resizable(resizingMode: .stretch)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30, height: 30)
+                        
+                       
+                    Text("Edit photo")
+                        .font(.largeTitle)
+                    
+                        // .font(Font.custom("SF-Pro-Display-Black", size: 32))
+                        
+                     //   .fontWeight(.semibold)
+                        
+                    
+                } .offset(x: 0, y: -35)
             }
+                
             
             
-        }
-        
-        .padding()
+            
+        }.background(Image("Blob 1 Dark").offset(x: 200, y: -150))
+      //  .padding()
      
         
     }

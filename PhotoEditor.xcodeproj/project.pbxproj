@@ -17,6 +17,9 @@
 		F56F6E652832AA18008879F3 /* MaterialEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E642832AA18008879F3 /* MaterialEffect.swift */; };
 		F56F6E672832CF83008879F3 /* BottomCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E662832CF83008879F3 /* BottomCurve.swift */; };
 		F56F6E692833FD5C008879F3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E682833FD5C008879F3 /* MainView.swift */; };
+		F56F6E7128343E33008879F3 /* SF-Pro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F56F6E6F28343E33008879F3 /* SF-Pro-Italic.ttf */; };
+		F56F6E7228343E33008879F3 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F56F6E7028343E33008879F3 /* SF-Pro.ttf */; };
+		F56F6E7628344196008879F3 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F56F6E7528344196008879F3 /* SF-Pro-Display-Black.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,10 @@
 		F56F6E642832AA18008879F3 /* MaterialEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialEffect.swift; sourceTree = "<group>"; };
 		F56F6E662832CF83008879F3 /* BottomCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCurve.swift; sourceTree = "<group>"; };
 		F56F6E682833FD5C008879F3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F56F6E6C28343B99008879F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F56F6E6F28343E33008879F3 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
+		F56F6E7028343E33008879F3 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		F56F6E7528344196008879F3 /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +107,8 @@
 		F56F6E382832A168008879F3 /* PhotoEditor */ = {
 			isa = PBXGroup;
 			children = (
+				F56F6E6C28343B99008879F3 /* Info.plist */,
+				F56F6E7328344010008879F3 /* Resourses */,
 				F56F6E632832A191008879F3 /* View */,
 				F56F6E392832A168008879F3 /* PhotoEditorApp.swift */,
 				F56F6E3B2832A168008879F3 /* ContentView.swift */,
@@ -142,6 +151,24 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F56F6E7328344010008879F3 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				F56F6E7428344026008879F3 /* Fonts */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		F56F6E7428344026008879F3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F56F6E6F28343E33008879F3 /* SF-Pro-Italic.ttf */,
+				F56F6E7028343E33008879F3 /* SF-Pro.ttf */,
+				F56F6E7528344196008879F3 /* SF-Pro-Display-Black.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F56F6E412832A16D008879F3 /* Preview Assets.xcassets in Resources */,
+				F56F6E7228343E33008879F3 /* SF-Pro.ttf in Resources */,
+				F56F6E7628344196008879F3 /* SF-Pro-Display-Black.otf in Resources */,
+				F56F6E7128343E33008879F3 /* SF-Pro-Italic.ttf in Resources */,
 				F56F6E3E2832A16D008879F3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +471,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PhotoEditor/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhotoEditor/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -470,6 +501,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PhotoEditor/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhotoEditor/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
