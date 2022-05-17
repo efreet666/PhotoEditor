@@ -25,12 +25,14 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $currentTab){
             
+            accountView()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color("BG")).ignoresSafeArea()
+                .tag(Tab.Home)
             
             MainView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-               // .background(Color("red")).ignoresSafeArea()
-
-                .tag(Tab.Home)
+                .tag(Tab.Account)
             
             SampleCards(color: .purple, count: 20)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -42,10 +44,7 @@ struct ContentView: View {
                 .background(Color("BG")).ignoresSafeArea()
                 .tag(Tab.Message)
             
-            Text("Account")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color("BG")).ignoresSafeArea()
-                .tag(Tab.Account)
+            
             
         }
         
@@ -106,11 +105,18 @@ struct ContentView: View {
         ZStack{
             
             MaterialEffect(style: .systemUltraThinMaterial)
-                .frame(height: 250)
+                .frame(height: 260)
                 .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
                 .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 10)
                 .padding(.all, 20.0)
-                
+                .overlay(
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .stroke(.linearGradient(colors: [.white.opacity(0.3), .black.opacity(0.1)], startPoint: .top, endPoint: .bottom ))
+                        
+                        .blendMode(.overlay)
+                        .padding()
+                        .offset(x: -4 ,y: 4)
+                )
             VStack{
                 
                 Image("image1")
@@ -138,16 +144,66 @@ struct ContentView: View {
                     
                 } .offset(x: 0, y: -35)
             }
-                
-            
-            
-            
         }.background(Image("Blob 1 Dark").offset(x: 200, y: -150))
-      //  .padding()
      
-        
     }
     
+    @ViewBuilder func accountView() -> some View{
+        NavigationView{
+            List{
+                VStack(spacing: 8){
+                    if #available(iOS 15.0, *) {
+                        Image(systemName: "person.crop.circle.fill.badge.checkmark")
+                            .symbolVariant(.circle.fill)
+                            .font(.system(size: 32))
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(.blue)
+                            .padding()
+                            .background(Circle().fill(.ultraThinMaterial))
+                            .background(
+                            Image(systemName: "hexagon")
+                                .symbolVariant(.fill)
+                                .foregroundColor(.blue)
+                                .font(.system(size: 200))
+                                .offset(x: -50, y: -100)
+                            )
+                        Text("Vlad Bokin")
+                            .font(.title.weight(.semibold))
+                        HStack{
+                            Image(systemName: "location")
+                                .imageScale(.large)
+                            Text("Russia")
+                                .foregroundColor(.secondary)
+                        }
+                        
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                        
+                        
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                
+                
+                if #available(iOS 15.0, *) {
+                    Section{
+                        Text("Settings")
+                        Text("Billing")
+                        Text("Help")
+                    }
+                    .listRowSeparatorTint(.blue)
+                    .listRowSeparator(.hidden)
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+            .listStyle(.insetGrouped)
+            .navigationTitle("Account")
+            
+        }
+        
+    }
     
     
     //tabButton
