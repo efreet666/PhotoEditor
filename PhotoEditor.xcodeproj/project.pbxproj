@@ -16,6 +16,7 @@
 		F56F6E572832A16D008879F3 /* PhotoEditorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E562832A16D008879F3 /* PhotoEditorUITestsLaunchTests.swift */; };
 		F56F6E652832AA18008879F3 /* MaterialEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E642832AA18008879F3 /* MaterialEffect.swift */; };
 		F56F6E672832CF83008879F3 /* BottomCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E662832CF83008879F3 /* BottomCurve.swift */; };
+		F56F6E692833FD5C008879F3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E682833FD5C008879F3 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		F56F6E562832A16D008879F3 /* PhotoEditorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F56F6E642832AA18008879F3 /* MaterialEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialEffect.swift; sourceTree = "<group>"; };
 		F56F6E662832CF83008879F3 /* BottomCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCurve.swift; sourceTree = "<group>"; };
+		F56F6E682833FD5C008879F3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				F56F6E632832A191008879F3 /* View */,
 				F56F6E392832A168008879F3 /* PhotoEditorApp.swift */,
 				F56F6E3B2832A168008879F3 /* ContentView.swift */,
+				F56F6E682833FD5C008879F3 /* MainView.swift */,
 				F56F6E662832CF83008879F3 /* BottomCurve.swift */,
 				F56F6E642832AA18008879F3 /* MaterialEffect.swift */,
 				F56F6E3D2832A16D008879F3 /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 				F56F6E3C2832A168008879F3 /* ContentView.swift in Sources */,
 				F56F6E652832AA18008879F3 /* MaterialEffect.swift in Sources */,
 				F56F6E672832CF83008879F3 /* BottomCurve.swift in Sources */,
+				F56F6E692833FD5C008879F3 /* MainView.swift in Sources */,
 				F56F6E3A2832A168008879F3 /* PhotoEditorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

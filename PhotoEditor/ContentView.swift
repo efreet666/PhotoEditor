@@ -20,16 +20,19 @@ struct ContentView: View {
     //Matched geometry effect
     @Namespace var animation
     
-    @State var currentXValue: CGFloat = 0 
+    @State var currentXValue: CGFloat = 0
     
     var body: some View {
         TabView(selection: $currentTab){
-            SampleCards(color: .purple, count: 20)
+            
+            
+            MainView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color("BG")).ignoresSafeArea()
+               // .background(Color("red")).ignoresSafeArea()
+
                 .tag(Tab.Home)
             
-            Text("Search")
+            SampleCards(color: .purple, count: 20)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color("BG")).ignoresSafeArea()
                 .tag(Tab.Search)
@@ -58,15 +61,17 @@ struct ContentView: View {
                             getSafearea().bottom - 10)
                 .background(
                     MaterialEffect(style:
-                                .systemUltraThinMaterialDark)
-                                .clipShape(BottomCurve(currentXValue: currentXValue)))
-                
-             ,
+                                        .systemUltraThinMaterialDark)
+                        .clipShape(BottomCurve(currentXValue: currentXValue)))
+            
+            ,
             alignment: .bottom
         )
         .ignoresSafeArea(.all, edges: .bottom)
-        .preferredColorScheme(.dark)
-
+        
+        //Scheme
+        .preferredColorScheme(.light)
+        
     }
     
     //simple cards
@@ -83,16 +88,54 @@ struct ContentView: View {
                             .fill(color)
                             .frame(height: 250)
                         
-                    
-                }
+                        
+                    }
                 }
                 .padding()
                 .padding(.bottom, 60)
                 .padding(.bottom,getSafearea().bottom == 0 ? 15 : getSafearea().bottom)
             }
+            .navigationBarTitle("Home")
         }
         
     }
+    
+    @ViewBuilder func MainView() -> some View{
+        
+        
+        ZStack{
+            
+            
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.white)
+                .frame(height: 125)
+
+                .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 10)
+                .opacity(0.5)
+                .background(Image("Blob 1"))
+            HStack{
+                
+                Image("edit")
+                    .resizable(resizingMode: .stretch)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
+                
+                   
+                Text("Редактировать фото")
+                    .font(.title)
+                    .font(.footnote)
+                    
+                
+            }
+            
+            
+        }
+        
+        .padding()
+     
+        
+    }
+    
     
     
     //tabButton
@@ -123,14 +166,14 @@ struct ContentView: View {
                     .background(
                         ZStack{
                             if currentTab == tab{
-                                 
+                                
                                 MaterialEffect(style: .systemChromeMaterialDark)
                                     .clipShape(Circle())
                                     .matchedGeometryEffect(id: "TAB", in: animation)
                             }
                         }
-                      
-                )
+                        
+                    )
                     .contentShape(Rectangle())
                     .offset(y: currentTab == tab ? -50 : 0)
                 
@@ -145,7 +188,7 @@ struct ContentView: View {
         .frame(height: 30)
     }
     
-       
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
