@@ -59,8 +59,8 @@ struct ContentView: View {
                        
                 })
                 .overlay(
-                    NavigationBar(title: "Home")
-                        .opacity(hasScrolled ? 0 : 1)
+                    NavigationBar(title: "Home", hasScrolled: $hasScrolled)
+                        
                     
                 )
                 .tag(Tab.Home)

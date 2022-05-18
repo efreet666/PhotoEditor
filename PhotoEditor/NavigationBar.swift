@@ -10,6 +10,7 @@ import SwiftUI
 struct NavigationBar: View {
     
     var title = ""
+    @Binding var hasScrolled: Bool
     
     var body: some View {
         ZStack {
@@ -19,12 +20,15 @@ struct NavigationBar: View {
                 .blur(radius: 4)
                 .offset(y: -10)
                 .ignoresSafeArea()
-                
+                .opacity(hasScrolled ? 1 : 0)
             
             Text(title)
+                .animatableFont(size: hasScrolled ? 22: 34, weight: .bold)
                 .font(.largeTitle.weight(.bold))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
+                .padding(.top, 20)
+                .offset(y: hasScrolled ? -4 : 0)
             
             HStack(spacing: 16){
                 if #available(iOS 15.0, *) {
@@ -52,17 +56,18 @@ struct NavigationBar: View {
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.trailing, 20)
-        
+            .padding(.top, 20)
+            .offset(y: hasScrolled ? -4 : 0)
             
         }
-            .frame(height: 70)
+        .frame(height: hasScrolled ? 44 : 70)
             .frame(maxHeight: .infinity, alignment: .top)
     }
 }
 
 struct NavigationBar_PriviewNavigationBar: PreviewProvider {
     static var previews: some View {
-        NavigationBar()
+        NavigationBar(title: "Home", hasScrolled: .constant(false))
     }
 }
 

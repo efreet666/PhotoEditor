@@ -52,7 +52,7 @@ import SwiftUI
                 
             } .offset(x: 0, y: -35)
         }
-    }.background(Image("Blob 1 Dark").offset(x: 200, y: -150))
+    }.background(Image("Blob 1 Dark").offset(x: 200, y: -100))
  
 }
 
