@@ -21,6 +21,7 @@
 		F56F6E7228343E33008879F3 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F56F6E7028343E33008879F3 /* SF-Pro.ttf */; };
 		F56F6E7628344196008879F3 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F56F6E7528344196008879F3 /* SF-Pro-Display-Black.otf */; };
 		F56F6E782834F84F008879F3 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E772834F84E008879F3 /* NavigationBar.swift */; };
+		F56F6E7B2835140B008879F3 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E7A2835140B008879F3 /* PreferenceKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		F56F6E7028343E33008879F3 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		F56F6E7528344196008879F3 /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
 		F56F6E772834F84E008879F3 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		F56F6E7A2835140B008879F3 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				F56F6E682833FD5C008879F3 /* MainView.swift */,
 				F56F6E662832CF83008879F3 /* BottomCurve.swift */,
 				F56F6E642832AA18008879F3 /* MaterialEffect.swift */,
+				F56F6E79283513F0008879F3 /* Model */,
 				F56F6E3D2832A16D008879F3 /* Assets.xcassets */,
 				F56F6E7328344010008879F3 /* Resourses */,
 				F56F6E3F2832A16D008879F3 /* Preview Content */,
@@ -172,6 +175,14 @@
 				F56F6E7528344196008879F3 /* SF-Pro-Display-Black.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F56F6E79283513F0008879F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F56F6E7A2835140B008879F3 /* PreferenceKeys.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +321,7 @@
 				F56F6E3C2832A168008879F3 /* ContentView.swift in Sources */,
 				F56F6E652832AA18008879F3 /* MaterialEffect.swift in Sources */,
 				F56F6E672832CF83008879F3 /* BottomCurve.swift in Sources */,
+				F56F6E7B2835140B008879F3 /* PreferenceKeys.swift in Sources */,
 				F56F6E692833FD5C008879F3 /* MainView.swift in Sources */,
 				F56F6E3A2832A168008879F3 /* PhotoEditorApp.swift in Sources */,
 				F56F6E782834F84F008879F3 /* NavigationBar.swift in Sources */,

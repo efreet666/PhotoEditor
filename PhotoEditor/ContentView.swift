@@ -22,18 +22,51 @@ struct ContentView: View {
     
     @State var currentXValue: CGFloat = 0
     
+    // Navigation bar
+    @State var hasScrolled: Bool = false
+    
+    
     var body: some View {
         TabView(selection: $currentTab){
             
-            ScrollView{
-                MainView()
-                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+            if #available(iOS 15.0, *) {
+                ScrollView{
+                    GeometryReader{ proxy in
+                        Color.clear.preference(key: ScrollPreferenceKeys.self, value: proxy.frame(in: .named("scroll")).minY)
+                            .onPreferenceChange(ScrollPreferenceKeys.self) { value in
+                                withAnimation {
+                                    if value < 0 {
+                                        hasScrolled = true
+                                    } else {
+                                        hasScrolled = false
+                                    }
+                                }
+                              
+                            }
+                    }.frame(height: 0)
+                    
+                    MainView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    Color.clear.frame(height: 1000)
+                       
+                }
+                .safeAreaInset(edge: .top, content: {
+                    Color.clear.frame(height: 70)
+                       
+                })
+                .safeAreaInset(edge: .bottom, content: {
+                    Color.clear.frame(height: 40)
+                       
+                })
+                .overlay(
+                    NavigationBar(title: "Home")
+                        .opacity(hasScrolled ? 0 : 1)
+                    
+                )
+                .tag(Tab.Home)
+            } else {
+                // Fallback on earlier versions
             }
-            .overlay(
-                NavigationBar(title: "Home")
-                
-            )
-            .tag(Tab.Home)
             
             accountView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -134,6 +167,7 @@ struct ContentView: View {
                             Text("Russia")
                                 .foregroundColor(.secondary)
                         }
+                        
                         
                     } else {
                         // Fallback on earlier versions
