@@ -46,31 +46,41 @@ struct ContentView: View {
                     }.frame(height: 0)
                     
                     MainView()
+                        
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     Color.clear.frame(height: 1000)
                        
+                    
                 }
+                
                 .safeAreaInset(edge: .top, content: {
                     Color.clear.frame(height: 70)
+        
                        
                 })
+                
                 .safeAreaInset(edge: .bottom, content: {
                     Color.clear.frame(height: 40)
+                    
                        
                 })
+                
                 .overlay(
                     NavigationBar(title: "Home", hasScrolled: $hasScrolled)
                         
                     
-                )
+                ).offset(x: 0, y: 30)
+                    .background(Color("BG")).ignoresSafeArea()
+                    .preferredColorScheme(.dark)
                 .tag(Tab.Home)
+                
             } else {
                 // Fallback on earlier versions
             }
             
             accountView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color("BG")).ignoresSafeArea()
+                .background(Color("accentColor")).ignoresSafeArea()
                 .tag(Tab.Account)
             
             SampleCards(color: .purple, count: 20)
@@ -78,7 +88,7 @@ struct ContentView: View {
                 .background(Color("BG")).ignoresSafeArea()
                 .tag(Tab.Search)
             
-            Text("Message")
+            ImageEditor()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color("BG")).ignoresSafeArea()
                 .tag(Tab.Message)
@@ -108,9 +118,11 @@ struct ContentView: View {
         .ignoresSafeArea(.all, edges: .bottom)
         
         //Scheme
-        .preferredColorScheme(.light)
+        .preferredColorScheme(.dark)
         
     }
+    
+    
     
     //simple cards
     @ViewBuilder func SampleCards(color: Color, count: Int) -> some View{
