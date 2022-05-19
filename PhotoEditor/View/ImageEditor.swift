@@ -9,53 +9,95 @@ import SwiftUI
 
 struct ImageEditor: View {
     @StateObject var model = DravingViewModel()
+    
+    
     var body: some View {
        
-        NavigationView{
-            VStack{
-                if UIImage(data: model.imageData) != nil{
-                    
-                    DrawingScreen()
-                        .environmentObject(model)
+        ZStack{
+            NavigationView{
+                VStack{
+                    if UIImage(data: model.imageData) != nil{
                         
-                    
-//                    Image(uiImage: imageFile)
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-                      
-                    
-                    
-                    //cancel button
-                    
-                        .toolbar(content: {
-                            ToolbarItem(placement: .navigationBarLeading) {
+                        DrawingScreen()
+                            .environmentObject(model)
                             
-                            Button(action: model.cancelImageEdition, label: { Image(systemName: "xmark")
-                                    .colorInvert()
+                        
+    //                    Image(uiImage: imageFile)
+    //                        .resizable()
+    //                        .aspectRatio(contentMode: .fit)
+                          
+                        
+                        
+                        //cancel button
+                        
+                            .toolbar(content: {
+                                ToolbarItem(placement: .navigationBarLeading) {
                                 
-                            })
-                        
-                    }
+                                Button(action: model.cancelImageEdition, label: { Image(systemName: "xmark")
+                                        .foregroundColor(Color.blue)
+                                    
+                                })
                             
+                        }
+                                
+                            
+                            })
+                    } else {
                         
+                        Button(action: {model.showImagePicker.toggle()}, label: {
+                            Image(systemName: "plus")
+                                .font(.title)
+                                .foregroundColor(.black)
+                                .frame(width: 50, height: 50)
+                                .background(Color.white)
+                                .cornerRadius(10)
+                                .shadow(color: Color.black.opacity(0.07), radius: 5, x: 5, y: 5)
+                                .shadow(color: Color.black.opacity(0.07), radius: 5, x: -5, y: -5)
+                            
                         })
-                } else {
+                    }
+                }
+                .navigationTitle("Image Editor")
+                
+            }
+            
+            if model.addNewBox{
+                Color.black.opacity(0.75)
+                    .ignoresSafeArea()
+                
+                //textField
+                TextField("Ввод", text: $model.textBoxes[model.currentIndex].text)
+                    .font(.system(size: 35))
+                    .colorScheme(.dark)
+//                    .foregroundColor($model.textBoxes[model.currentIndex].textColor)
+                    .padding()
+                
+                //add and cancel button
+                HStack{
+                    Button(action: {}, label: {
+                        Text("Add")
+                            .fontWeight(.heavy)
+                            .foregroundColor(.white)
+                            .padding()
+                    })
                     
-                    Button(action: {model.showImagePicker.toggle()}, label: {
-                        Image(systemName: "plus")
-                            .font(.title)
-                            .foregroundColor(.black)
-                            .frame(width: 50, height: 50)
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .shadow(color: Color.black.opacity(0.07), radius: 5, x: 5, y: 5)
-                            .shadow(color: Color.black.opacity(0.07), radius: 5, x: -5, y: -5)
-                        
+                    Spacer()
+                    
+                    Button(action: model.cancelTextView
+                    , label: {
+                        Text("Cancel")
+                            .fontWeight(.heavy)
+                            .foregroundColor(.white)
+                            .padding()
                     })
                 }
+//                .overlay(
+                //color picker
+//                    ColorPicker("", selection: $model.textBoxes[model.currentIndex].textColor)
+//                        .labelsHidden()
+//                )
+                .frame(maxHeight: .infinity, alignment: .top)
             }
-            .navigationTitle("Image Editor")
-            
         }
         
         .sheet(isPresented: $model.showImagePicker, content: {

@@ -19,13 +19,41 @@ struct DrawingScreen: View {
                 
                 return AnyView(
                     
-                    // UIKit Pencil Kit Drawing
-                    CanvasView(canvas: $model.canvas, imageData: $model.imageData, toolPicker: $model.toolPicker, rect: size)
-                    )
+                    ZStack{
+                        // UIKit Pencil Kit Drawing
+                        CanvasView(canvas: $model.canvas, imageData: $model.imageData, toolPicker: $model.toolPicker, rect: size)
+                    }
+              )
+            }
+            
+        }.toolbar(content: {
+            ToolbarItem(placement: .navigationBarTrailing){
+                Button(action: {}, label: {
+                    Text("Save")
+                        .foregroundColor(Color.blue)
+                })
                 
             }
             
-        }
+            ToolbarItem(placement: .navigationBarTrailing){
+                Button(action: {
+                    
+                    //creating One new Box...
+                    model.textBoxes.append(TextBox())
+                    
+                    //update index
+                    model.currentIndex = model.textBoxes.count - 1
+                    withAnimation{
+                        model.addNewBox.toggle()}
+                    //closing the tool bar
+                    model.toolPicker.setVisible(false, forFirstResponder: model.canvas)
+                    model.canvas.resignFirstResponder()
+                }, label: {
+                    Image(systemName: "plus")
+                        .foregroundColor(Color.blue)
+                })
+            }
+        })
     }
 }
 

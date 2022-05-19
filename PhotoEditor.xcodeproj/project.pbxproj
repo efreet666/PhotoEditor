@@ -27,6 +27,7 @@
 		F56F6E7E28351EA0008879F3 /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E7D28351EA0008879F3 /* AnimatableFontModifier.swift */; };
 		F56F6E8D28366175008879F3 /* ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E8C28366175008879F3 /* ImageEditor.swift */; };
 		F56F6E8F2836621E008879F3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E8E2836621E008879F3 /* ImagePicker.swift */; };
+		F5FD9B572836AE430029C30B /* TextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD9B562836AE430029C30B /* TextBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		F56F6E7D28351EA0008879F3 /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
 		F56F6E8C28366175008879F3 /* ImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditor.swift; sourceTree = "<group>"; };
 		F56F6E8E2836621E008879F3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F5FD9B562836AE430029C30B /* TextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +170,8 @@
 				F56F6E392832A168008879F3 /* PhotoEditorApp.swift */,
 				F56F6E682833FD5C008879F3 /* MainView.swift */,
 				F56F6E8C28366175008879F3 /* ImageEditor.swift */,
-				F56F6E8E2836621E008879F3 /* ImagePicker.swift */,
 				F51F38E528367CB000EB2387 /* DrawingScreen.swift */,
+				F56F6E8E2836621E008879F3 /* ImagePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				F56F6E7A2835140B008879F3 /* PreferenceKeys.swift */,
+				F5FD9B562836AE430029C30B /* TextBox.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				F51F38E428366C9600EB2387 /* DravingViewModel.swift in Sources */,
 				F56F6E8D28366175008879F3 /* ImageEditor.swift in Sources */,
 				F56F6E7E28351EA0008879F3 /* AnimatableFontModifier.swift in Sources */,
+				F5FD9B572836AE430029C30B /* TextBox.swift in Sources */,
 				F56F6E7B2835140B008879F3 /* PreferenceKeys.swift in Sources */,
 				F56F6E692833FD5C008879F3 /* MainView.swift in Sources */,
 				F56F6E8F2836621E008879F3 /* ImagePicker.swift in Sources */,

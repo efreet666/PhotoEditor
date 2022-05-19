@@ -19,11 +19,32 @@ class DravingViewModel: ObservableObject {
     //tool picker
     @Published var toolPicker = PKToolPicker()
     
+    //list of TextBoxes
+    @Published var textBoxes : [TextBox] = []
+    
+    @Published var addNewBox = false
+    
+    @Published var currentIndex: Int = 0
+    
+    
     //cancel function
     func cancelImageEdition(){
         imageData = Data(count: 0)
-        showImagePicker.toggle()
+        canvas = PKCanvasView()
+    }
+    
+    //cancel the text view
+    func cancelTextView(){
         
+        //showing again the tool bar
+        toolPicker.setVisible(true, forFirstResponder: canvas)
+        canvas.becomeFirstResponder()
+        withAnimation{
+            addNewBox  = false
+        }
+        
+        //removing if cancelled
+        textBoxes.removeLast()
     }
 }
 
