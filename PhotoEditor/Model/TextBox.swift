@@ -12,11 +12,11 @@ struct TextBox: Identifiable {
    
     var id = UUID().uuidString
     var text: String = ""
+    var textColor: Color = .black
     var isBold: Bool = false
     //For draggingthe view over
     var offset: CGSize = .zero
     var lastOffset: CGSize = .zero
-    var textColor: Color?
 }
 
 

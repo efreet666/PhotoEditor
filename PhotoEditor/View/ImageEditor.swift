@@ -69,12 +69,19 @@ struct ImageEditor: View {
                 TextField("Ввод", text: $model.textBoxes[model.currentIndex].text)
                     .font(.system(size: 35))
                     .colorScheme(.dark)
-//                    .foregroundColor($model.textBoxes[model.currentIndex].textColor)
+                    .foregroundColor(model.textBoxes[model.currentIndex].textColor)
                     .padding()
                 
                 //add and cancel button
                 HStack{
-                    Button(action: {}, label: {
+                    Button(action: {
+                        //closing the view
+                        withAnimation {
+                            model.addNewBox = false
+                            
+                        }
+                        
+                    }, label: {
                         Text("Add")
                             .fontWeight(.heavy)
                             .foregroundColor(.white)
@@ -91,11 +98,11 @@ struct ImageEditor: View {
                             .padding()
                     })
                 }
-//                .overlay(
-                //color picker
-//                    ColorPicker("", selection: $model.textBoxes[model.currentIndex].textColor)
-//                        .labelsHidden()
-//                )
+              .overlay(
+               //color picker
+                ColorPicker("", selection: $model.textBoxes[model.currentIndex].textColor)
+                        .labelsHidden()
+                )
                 .frame(maxHeight: .infinity, alignment: .top)
             }
         }

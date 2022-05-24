@@ -33,7 +33,6 @@ import SwiftUI
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 330)
                     .offset(x: 0, y: -30)
-                   
                 
                 HStack{
                     
@@ -50,12 +49,8 @@ import SwiftUI
                         
                      //   .fontWeight(.semibold)
                         
-                    
                 } .offset(x: 0, y: -35)
-                
-                
             }
-            
         }
         
         //Block 2
@@ -100,9 +95,6 @@ import SwiftUI
                 
             }
         }
-        
-        
-        
     }
     
     .background(Image("Blob 1 Dark").offset(x: 250, y: -40))

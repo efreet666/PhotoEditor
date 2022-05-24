@@ -22,6 +22,20 @@ struct DrawingScreen: View {
                     ZStack{
                         // UIKit Pencil Kit Drawing
                         CanvasView(canvas: $model.canvas, imageData: $model.imageData, toolPicker: $model.toolPicker, rect: size)
+                        
+                        //displaing textBoxes
+                        ForEach(model.textBoxes){ box in
+                            
+                            Text(model.textBoxes[model.currentIndex].id == box.id && model.addNewBox ? "" : box.text)
+                                .font(.system(size: 30))
+                                .fontWeight(box.isBold ? .bold : .none )
+                                .foregroundColor(box.textColor)
+                                .offset(box.offset)
+                            
+                            //drag  gesture
+                             
+                            
+                        }
                     }
               )
             }
