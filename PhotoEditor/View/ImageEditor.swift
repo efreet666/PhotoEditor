@@ -67,7 +67,7 @@ struct ImageEditor: View {
                 
                 //textField
                 TextField("Ввод", text: $model.textBoxes[model.currentIndex].text)
-                    .font(.system(size: 35))
+                    .font(.system(size: 35, weight: model.textBoxes[model.currentIndex].isBold ? .bold : .regular) )
                     .colorScheme(.dark)
                     .foregroundColor(model.textBoxes[model.currentIndex].textColor)
                     .padding()
@@ -75,6 +75,9 @@ struct ImageEditor: View {
                 //add and cancel button
                 HStack{
                     Button(action: {
+                        //toggling the isAdded
+                        model.textBoxes[model.currentIndex].isAdded = true
+                        
                         //closing the view
                         withAnimation {
                             model.toolPicker.setVisible(true, forFirstResponder: model.canvas)
@@ -99,11 +102,25 @@ struct ImageEditor: View {
                             .foregroundColor(.white)
                             .padding()
                     })
-                }
-              .overlay(
-               //color picker
-                ColorPicker("", selection: $model.textBoxes[model.currentIndex].textColor)
-                        .labelsHidden()
+                }.padding()
+                    .offset(y: 20)
+                
+                .overlay(
+                    HStack(spacing: 15){
+                        //color picker
+                         ColorPicker("", selection: $model.textBoxes[model.currentIndex].textColor)
+                                 .labelsHidden()
+                        
+                        Button(action: {
+                            model.textBoxes[model.currentIndex].isBold.toggle()
+                        }, label: {
+                            Text(model.textBoxes[model.currentIndex].isBold ? "Normal" : "Bold")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                        })
+                    }
+                        .padding()
+                            .offset(y: 20)
                 )
                 .frame(maxHeight: .infinity, alignment: .top)
             }
@@ -112,6 +129,9 @@ struct ImageEditor: View {
         .sheet(isPresented: $model.showImagePicker, content: {
             ImagePickerView(showPicker: $model.showImagePicker, imageData: $model.imageData)
                 
+        })
+        .alert(isPresented: $model.showAlert, content: {
+            Alert(title: Text("Уведомление"), message: Text(model.message), dismissButton: .destructive(Text("Ok")))
         })
     }
 }

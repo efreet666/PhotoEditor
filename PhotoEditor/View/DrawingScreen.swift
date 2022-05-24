@@ -15,13 +15,19 @@ struct DrawingScreen: View {
         ZStack{
         
             GeometryReader{proxy -> AnyView in
-                let size = proxy.frame(in: .global).size
+                let size = proxy.frame(in: .global)
+                
+                DispatchQueue.main.async{
+                    if model.rect == .zero{
+                        model.rect = size
+                    }
+                }
                 
                 return AnyView(
                     
                     ZStack{
                         // UIKit Pencil Kit Drawing
-                        CanvasView(canvas: $model.canvas, imageData: $model.imageData, toolPicker: $model.toolPicker, rect: size)
+                        CanvasView(canvas: $model.canvas, imageData: $model.imageData, toolPicker: $model.toolPicker, rect: size.size)
                         
                         //displaing textBoxes
                         ForEach(model.textBoxes){ box in
@@ -44,7 +50,17 @@ struct DrawingScreen: View {
                                     model.textBoxes[getIndex(textBox: box)].lastOffset = value.translation
                                 })
                                 )
-                             
+                            //editing the typed one
+                                .onLongPressGesture{
+                                    //closing the toolBar
+                                    model.toolPicker.setVisible(false, forFirstResponder: model.canvas)
+                                    model.canvas.resignFirstResponder()
+                                    
+                                    model.currentIndex = getIndex(textBox: box)
+                                    withAnimation{
+                                        model.addNewBox = true
+                                    }
+                                }
                             
                         }
                     }
@@ -53,7 +69,9 @@ struct DrawingScreen: View {
             
         }.toolbar(content: {
             ToolbarItem(placement: .navigationBarTrailing){
-                Button(action: {}, label: {
+                Button(action: {
+                    model.saveImage()
+                }, label: {
                     Text("Save")
                         .foregroundColor(Color.blue)
                 })
