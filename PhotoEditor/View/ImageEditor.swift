@@ -77,6 +77,8 @@ struct ImageEditor: View {
                     Button(action: {
                         //closing the view
                         withAnimation {
+                            model.toolPicker.setVisible(true, forFirstResponder: model.canvas)
+                            model.canvas.becomeFirstResponder()
                             model.addNewBox = false
                             
                         }
