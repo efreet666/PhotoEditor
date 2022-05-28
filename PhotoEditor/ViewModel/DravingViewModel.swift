@@ -87,7 +87,6 @@ class DravingViewModel: ObservableObject {
         controller.backgroundColor = .clear
         canvas.backgroundColor = .clear
         
-        
         controller.drawHierarchy(in: CGRect(origin: .zero, size: rect.size), afterScreenUpdates: true)
         //getting image
         let generetedImage = UIGraphicsGetImageFromCurrentImageContext()

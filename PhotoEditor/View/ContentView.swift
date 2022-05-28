@@ -83,7 +83,8 @@ struct ContentView: View {
                 .background(Color("accentColor")).ignoresSafeArea()
                 .tag(Tab.Account)
             
-            SampleCards(color: .purple, count: 20)
+            FiltersView()
+//            SampleCards(color: .purple, count: 20)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color("BG")).ignoresSafeArea()
                 .tag(Tab.Search)

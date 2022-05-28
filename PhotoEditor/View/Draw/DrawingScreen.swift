@@ -132,6 +132,7 @@ struct CanvasView: UIViewRepresentable{
             imageView.frame = CGRect(x: 0, y: 0, width: rect.width, height: rect.height)
             imageView.contentMode = .scaleAspectFit
             imageView.clipsToBounds = true
+             
             
             let subView = canvas.subviews[0]
             subView.addSubview(imageView)
@@ -141,7 +142,7 @@ struct CanvasView: UIViewRepresentable{
             toolPicker.addObserver(canvas)
             canvas.becomeFirstResponder()
         }
-        
+            
         return canvas
     }
     
