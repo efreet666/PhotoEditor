@@ -7,12 +7,12 @@
 
 import SwiftUI
 
+
+
 @ViewBuilder func MainView() -> some View{
-    
+    //Block 1
     VStack{
         ZStack{
-            
-            
             MaterialEffect(style: .systemUltraThinMaterial)
                 .frame(height: 260)
                 .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
@@ -41,9 +41,19 @@ import SwiftUI
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30, height: 30)
                         .colorInvert()
-                       
-                    Text("Edit photo")
-                        .font(.largeTitle)
+                    
+                    
+                    
+                        NavigationLink(destination: {
+                            FiltersView()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .background(Color("BG")).ignoresSafeArea()
+                                
+                        }, label: {Text("Edit photo")
+    })
+                            .font(.largeTitle)
+                    
+                   
                     
                         // .font(Font.custom("SF-Pro-Display-Black", size: 32))
                         
@@ -52,6 +62,7 @@ import SwiftUI
                 } .offset(x: 0, y: -35)
             }
         }
+        
         
         //Block 2
         ZStack{
@@ -96,7 +107,6 @@ import SwiftUI
             }
         }
     }
-    
     .background(Image("Blob 1 Dark").offset(x: 250, y: -40))
     .offset(x: 0, y: 55)
 }

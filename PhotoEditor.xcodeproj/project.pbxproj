@@ -29,6 +29,8 @@
 		F56F6E8F2836621E008879F3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F6E8E2836621E008879F3 /* ImagePicker.swift */; };
 		F5E95F1928423ED60075425D /* ImagePicker2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E95F1828423ED60075425D /* ImagePicker2.swift */; };
 		F5E95F1B284240BE0075425D /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E95F1A284240BE0075425D /* FiltersView.swift */; };
+		F5E95F1D284299F10075425D /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E95F1C284299F10075425D /* FiltersViewModel.swift */; };
+		F5E95F2028429B210075425D /* FiltersImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E95F1F28429B210075425D /* FiltersImagePicker.swift */; };
 		F5FD9B572836AE430029C30B /* TextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD9B562836AE430029C30B /* TextBox.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		F56F6E8E2836621E008879F3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F5E95F1828423ED60075425D /* ImagePicker2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker2.swift; sourceTree = "<group>"; };
 		F5E95F1A284240BE0075425D /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
+		F5E95F1C284299F10075425D /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
+		F5E95F1F28429B210075425D /* FiltersImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersImagePicker.swift; sourceTree = "<group>"; };
 		F5FD9B562836AE430029C30B /* TextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,13 +132,12 @@
 			isa = PBXGroup;
 			children = (
 				F56F6E6C28343B99008879F3 /* Info.plist */,
+				F56F6E392832A168008879F3 /* PhotoEditorApp.swift */,
 				F56F6E632832A191008879F3 /* View */,
 				F56F6E772834F84E008879F3 /* NavigationBar.swift */,
 				F56F6E662832CF83008879F3 /* BottomCurve.swift */,
-				F56F6E642832AA18008879F3 /* MaterialEffect.swift */,
 				F56F6E8728364C41008879F3 /* ViewModel */,
 				F56F6E79283513F0008879F3 /* Model */,
-				F56F6E3D2832A16D008879F3 /* Assets.xcassets */,
 				F56F6E7C28351E6E008879F3 /* Styles */,
 				F56F6E7328344010008879F3 /* Resourses */,
 				F56F6E3F2832A16D008879F3 /* Preview Content */,
@@ -170,10 +173,10 @@
 		F56F6E632832A191008879F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F5E95F1E28429AF30075425D /* Filters */,
 				F56F6E3B2832A168008879F3 /* ContentView.swift */,
-				F56F6E392832A168008879F3 /* PhotoEditorApp.swift */,
 				F56F6E682833FD5C008879F3 /* MainView.swift */,
-				F5E95F1728423E860075425D /* Filters */,
+				F5E95F1728423E860075425D /* Tune Image */,
 				F5E95F1628423E5B0075425D /* Draw */,
 			);
 			path = View;
@@ -182,6 +185,7 @@
 		F56F6E7328344010008879F3 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				F56F6E3D2832A16D008879F3 /* Assets.xcassets */,
 				F56F6E7428344026008879F3 /* Fonts */,
 			);
 			path = Resourses;
@@ -209,6 +213,7 @@
 		F56F6E7C28351E6E008879F3 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				F56F6E642832AA18008879F3 /* MaterialEffect.swift */,
 				F56F6E7D28351EA0008879F3 /* AnimatableFontModifier.swift */,
 			);
 			path = Styles;
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				F51F38E328366C9600EB2387 /* DravingViewModel.swift */,
+				F5E95F1C284299F10075425D /* FiltersViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -232,11 +238,19 @@
 			path = Draw;
 			sourceTree = "<group>";
 		};
-		F5E95F1728423E860075425D /* Filters */ = {
+		F5E95F1728423E860075425D /* Tune Image */ = {
 			isa = PBXGroup;
 			children = (
 				F5E95F1828423ED60075425D /* ImagePicker2.swift */,
 				F5E95F1A284240BE0075425D /* FiltersView.swift */,
+			);
+			path = "Tune Image";
+			sourceTree = "<group>";
+		};
+		F5E95F1E28429AF30075425D /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				F5E95F1F28429B210075425D /* FiltersImagePicker.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -374,8 +388,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E95F2028429B210075425D /* FiltersImagePicker.swift in Sources */,
 				F56F6E3C2832A168008879F3 /* ContentView.swift in Sources */,
 				F56F6E652832AA18008879F3 /* MaterialEffect.swift in Sources */,
+				F5E95F1D284299F10075425D /* FiltersViewModel.swift in Sources */,
 				F56F6E672832CF83008879F3 /* BottomCurve.swift in Sources */,
 				F51F38E428366C9600EB2387 /* DravingViewModel.swift in Sources */,
 				F5E95F1B284240BE0075425D /* FiltersView.swift in Sources */,

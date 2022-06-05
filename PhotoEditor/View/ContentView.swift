@@ -84,10 +84,10 @@ struct ContentView: View {
                 .tag(Tab.Account)
             
             FiltersView()
-//            SampleCards(color: .purple, count: 20)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color("BG")).ignoresSafeArea()
-                .tag(Tab.Search)
+                .tag(Tab.Account)
+                
             
             ImageEditor()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
